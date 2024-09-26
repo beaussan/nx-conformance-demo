@@ -1,0 +1,19 @@
+{
+  "name": "conformance-custom-rules",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/conformance-rules/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/conformance-rules",
+        "main": "tools/conformance-rules/src/index.ts",
+        "tsConfig": "tools/conformance-rules/tsconfig.lib.json",
+        "assets": ["tools/conformance-rules/*.md"]
+      }
+    }
+  }
+}
