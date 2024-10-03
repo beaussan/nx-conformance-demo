@@ -41,3 +41,5 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 .nx/powerpack
+.yarn/install-state.gz
+

@@ -9,16 +9,16 @@ const rule = createConformanceRule({
   category: 'maintainability', // `consistency`, `maintainability`, `reliability` or `security`
   reporter: 'project-reporter', // `project-reporter` or `project-files-reporter`
   implementation: async (context) => {
-    const { projectGraph } = context;
+    const { projectGraph, ruleOptions } = context;
     const violations: ConformanceRuleResult<'project-reporter'>['details']['violations'] =
       [];
-
-    // console.log('Here is my rule options: ', ruleOptions);
 
     for (const project of Object.values(projectGraph.nodes)) {
       violations.push({
         sourceProject: project.name,
-        message: 'This is an example violation message',
+        message: `This is an example violation message. Rule options: ${JSON.stringify(
+          ruleOptions
+        )}`,
       });
     }
 

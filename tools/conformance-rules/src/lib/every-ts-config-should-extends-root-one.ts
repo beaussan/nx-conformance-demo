@@ -28,13 +28,13 @@ const rule = createConformanceRule({
         offsetFromRoot(projectConfig.root),
         'tsconfig.base.json'
       );
-      console.log(expectedTsPath);
       const tsconfigPath = join(projectConfig.root, 'tsconfig.json');
       updateJson<{ extends: string }>(tree, tsconfigPath, (data) => ({
         ...data,
         extends: expectedTsPath,
       }));
     }
+    // Optional: format files with prettier!
     await formatFiles(tree);
   },
   implementation: async (context) => {
